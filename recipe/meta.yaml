@@ -14,7 +14,7 @@ build:
   # QtSerialPort already comes with Windows Qt builds but the included bld.bat
   # should work (just doesn't package anything because files already exist)
   skip: true  # [win]
-  number: 0
+  number: 1
 
 requirements:
   build:

@@ -15,8 +15,8 @@ qmake \
     QMAKE_OBJDUMP=${OBJDUMP} \
     QMAKE_STRIP=${STRIP} \
     QMAKE_AR="${AR} cqs" \
-    ..
+    ${SRC_DIR}
 
-make -j$CPU_COUNT
+make -j${CPU_COUNT}
 make check
 make install

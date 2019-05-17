@@ -1,14 +1,13 @@
-{% set name = "qtserialport" %}
-{% set version = "5.6.2" %}
+{% set version = "5.9.7" %}
 {% set ver = '.'.join(version.split('.')[:2]) %}
 
 package:
-  name: {{ name|lower }}
+  name: qtserialport
   version: {{ version }}
 
 source:
   url: http://download.qt.io/official_releases/qt/{{ ver }}/{{ version }}/submodules/qtserialport-opensource-src-{{ version }}.tar.xz
-  sha256: af76281bad2c2bd283189635316b46091f6712134b845ae1b9e3016eec94f376
+  sha256: 50a7302c7cdedc61e81a2ef252ef9dc9bfaae98a27b5e39481abc87243251e17
 
 build:
   # QtSerialPort already comes with Windows Qt builds but the included bld.bat
@@ -18,8 +17,6 @@ build:
 
 requirements:
   build:
-    # if your project compiles code (such as a C extension) then add the required compilers as separate entries here.
-    # compilers are named 'c', 'cxx' and 'fortran'.
     - perl
     - cmake
     - {{ compiler('c') }}
@@ -31,13 +28,13 @@ requirements:
 
 test:
   commands:
-    - test -f ${PREFIX}/lib/libQt5SerialPort${SHLIB_EXT}  # [unix]
+    - test -f ${PREFIX}/lib/libQt5SerialPort${SHLIB_EXT}  # [not win]
 
 about:
   home: https://github.com/qt/qtserialport
   license: GPL-3.0
   license_family: GPL
-  license_file: LICENSE.GPLv3
+  license_file: LICENSE.GPL3
   summary: 'The QtSerialPort module is an add-on module for the Qt5 library, providing a single interface for both hardware and virtual serial ports.'
   description: |
     The QtSerialPort module is an add-on module for the Qt5 library, providing a single

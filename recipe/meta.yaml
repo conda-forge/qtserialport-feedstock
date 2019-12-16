@@ -1,4 +1,4 @@
-{% set version = "5.9.8" %}
+{% set version = "5.9.9" %}
 {% set ver = '.'.join(version.split('.')[:2]) %}
 
 package:
@@ -7,13 +7,13 @@ package:
 
 source:
   url: http://download.qt.io/official_releases/qt/{{ ver }}/{{ version }}/submodules/qtserialport-opensource-src-{{ version }}.tar.xz
-  sha256: 141eb4f49b3b3e94433e7941d57713d2a1cc8e16f6fc22779d683359ef965d7b
+  sha256: 65c2fa8add33c96afd2937feaa8f8a1e2b5c429319946a3beca85c666bf17c23
 
 build:
   # QtSerialPort already comes with Windows Qt builds but the included bld.bat
   # should work (just doesn't package anything because files already exist)
   skip: true  # [win]
-  number: 1
+  number: 0
 
 requirements:
   build:

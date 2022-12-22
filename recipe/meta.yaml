@@ -13,7 +13,7 @@ build:
   # QtSerialPort already comes with Windows Qt builds but the included bld.bat
   # should work (just doesn't package anything because files already exist)
   skip: true  # [win]
-  number: 1
+  number: 2
 
 requirements:
   build:
@@ -22,9 +22,9 @@ requirements:
     - {{ compiler('c') }}
     - {{ compiler('cxx') }}
   host:
-    - qt
+    - qt-main
   run:
-    - qt
+    - qt-main
 
 test:
   commands:

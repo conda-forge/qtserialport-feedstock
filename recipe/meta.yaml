@@ -32,7 +32,7 @@ test:
 
 about:
   home: https://github.com/qt/qtserialport
-  license: GPL-3.0
+  license: GPL-2.0-or-later
   license_family: GPL
   license_file: LICENSE.GPL3
   summary: 'The QtSerialPort module is an add-on module for the Qt5 library, providing a single interface for both hardware and virtual serial ports.'

@@ -18,6 +18,7 @@ build:
 requirements:
   build:
     - perl
+    - make  # [unix]
     - cmake
     - {{ compiler('c') }}
     - {{ compiler('cxx') }}

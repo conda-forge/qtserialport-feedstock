@@ -24,6 +24,11 @@ requirements:
     - qt-main {{ version }}  # [build_platform != target_platform]
   host:
     - qt-main {{ version }}
+  run:
+    # qt-main has a run export of x.x
+    # but because this is a subpackage of qt
+    # I would like to pin it to x.x.x
+    - qt-main {{ version }}
 
 test:
   commands:

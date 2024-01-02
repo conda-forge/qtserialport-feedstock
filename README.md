@@ -1,19 +1,19 @@
-About qtserialport-feedstock
-============================
+About qt6-serialport-feedstock
+==============================
 
 Feedstock license: [BSD-3-Clause](https://github.com/conda-forge/qtserialport-feedstock/blob/main/LICENSE.txt)
 
 Home: https://github.com/qt/qtserialport
 
-Package license: GPL-3.0
+Package license: GPL-2.0-only or GPL-3.0-only or LGPL-3.0-only
 
-Summary: The QtSerialPort module is an add-on module for the Qt5 library, providing a single interface for both hardware and virtual serial ports.
+Summary: Qt Serial Port provides basic functionality for configuration, I/O operations, and getting and setting the control signals of the RS-232 pinouts.
 
 Development: https://github.com/qt/qtserialport
 
-Documentation: http://doc.qt.io/qt-5/qtserialport-index.html
+Documentation: http://doc.qt.io/qt-6/qtserialport-index.html
 
-The QtSerialPort module is an add-on module for the Qt5 library, providing a single
+The QtSerialPort module is an add-on module for the Qt6 library, providing a single
 interface for both hardware and virtual serial ports. Serial interfaces, due to
 their simplicity and reliability, are still popular in some industries like the
 development of embedded systems, robotics, etc. Using the QtSerialPort module,
@@ -46,10 +46,31 @@ Current build status
                 </a>
               </td>
             </tr><tr>
+              <td>linux_aarch64</td>
+              <td>
+                <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=6384&branchName=main">
+                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/qtserialport-feedstock?branchName=main&jobName=linux&configuration=linux%20linux_aarch64_" alt="variant">
+                </a>
+              </td>
+            </tr><tr>
               <td>osx_64</td>
               <td>
                 <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=6384&branchName=main">
                   <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/qtserialport-feedstock?branchName=main&jobName=osx&configuration=osx%20osx_64_" alt="variant">
+                </a>
+              </td>
+            </tr><tr>
+              <td>osx_arm64</td>
+              <td>
+                <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=6384&branchName=main">
+                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/qtserialport-feedstock?branchName=main&jobName=osx&configuration=osx%20osx_arm64_" alt="variant">
+                </a>
+              </td>
+            </tr><tr>
+              <td>win_64</td>
+              <td>
+                <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=6384&branchName=main">
+                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/qtserialport-feedstock?branchName=main&jobName=win&configuration=win%20win_64_" alt="variant">
                 </a>
               </td>
             </tr>
@@ -65,53 +86,53 @@ Current release info
 
 | Name | Downloads | Version | Platforms |
 | --- | --- | --- | --- |
-| [![Conda Recipe](https://img.shields.io/badge/recipe-qtserialport-green.svg)](https://anaconda.org/conda-forge/qtserialport) | [![Conda Downloads](https://img.shields.io/conda/dn/conda-forge/qtserialport.svg)](https://anaconda.org/conda-forge/qtserialport) | [![Conda Version](https://img.shields.io/conda/vn/conda-forge/qtserialport.svg)](https://anaconda.org/conda-forge/qtserialport) | [![Conda Platforms](https://img.shields.io/conda/pn/conda-forge/qtserialport.svg)](https://anaconda.org/conda-forge/qtserialport) |
+| [![Conda Recipe](https://img.shields.io/badge/recipe-qt6--serialport-green.svg)](https://anaconda.org/conda-forge/qt6-serialport) | [![Conda Downloads](https://img.shields.io/conda/dn/conda-forge/qt6-serialport.svg)](https://anaconda.org/conda-forge/qt6-serialport) | [![Conda Version](https://img.shields.io/conda/vn/conda-forge/qt6-serialport.svg)](https://anaconda.org/conda-forge/qt6-serialport) | [![Conda Platforms](https://img.shields.io/conda/pn/conda-forge/qt6-serialport.svg)](https://anaconda.org/conda-forge/qt6-serialport) |
 
-Installing qtserialport
-=======================
+Installing qt6-serialport
+=========================
 
-Installing `qtserialport` from the `conda-forge` channel can be achieved by adding `conda-forge` to your channels with:
+Installing `qt6-serialport` from the `conda-forge` channel can be achieved by adding `conda-forge` to your channels with:
 
 ```
 conda config --add channels conda-forge
 conda config --set channel_priority strict
 ```
 
-Once the `conda-forge` channel has been enabled, `qtserialport` can be installed with `conda`:
+Once the `conda-forge` channel has been enabled, `qt6-serialport` can be installed with `conda`:
 
 ```
-conda install qtserialport
-```
-
-or with `mamba`:
-
-```
-mamba install qtserialport
-```
-
-It is possible to list all of the versions of `qtserialport` available on your platform with `conda`:
-
-```
-conda search qtserialport --channel conda-forge
+conda install qt6-serialport
 ```
 
 or with `mamba`:
 
 ```
-mamba search qtserialport --channel conda-forge
+mamba install qt6-serialport
+```
+
+It is possible to list all of the versions of `qt6-serialport` available on your platform with `conda`:
+
+```
+conda search qt6-serialport --channel conda-forge
+```
+
+or with `mamba`:
+
+```
+mamba search qt6-serialport --channel conda-forge
 ```
 
 Alternatively, `mamba repoquery` may provide more information:
 
 ```
 # Search all versions available on your platform:
-mamba repoquery search qtserialport --channel conda-forge
+mamba repoquery search qt6-serialport --channel conda-forge
 
-# List packages depending on `qtserialport`:
-mamba repoquery whoneeds qtserialport --channel conda-forge
+# List packages depending on `qt6-serialport`:
+mamba repoquery whoneeds qt6-serialport --channel conda-forge
 
-# List dependencies of `qtserialport`:
-mamba repoquery depends qtserialport --channel conda-forge
+# List dependencies of `qt6-serialport`:
+mamba repoquery depends qt6-serialport --channel conda-forge
 ```
 
 
@@ -156,17 +177,17 @@ Terminology
                   produce the finished article (built conda distributions)
 
 
-Updating qtserialport-feedstock
-===============================
+Updating qt6-serialport-feedstock
+=================================
 
-If you would like to improve the qtserialport recipe or build a new
+If you would like to improve the qt6-serialport recipe or build a new
 package version, please fork this repository and submit a PR. Upon submission,
 your changes will be run on the appropriate platforms to give the reviewer an
 opportunity to confirm that the changes result in a successful build. Once
 merged, the recipe will be re-built and uploaded automatically to the
 `conda-forge` channel, whereupon the built conda packages will be available for
 everybody to install and use from the `conda-forge` channel.
-Note that all branches in the conda-forge/qtserialport-feedstock are
+Note that all branches in the conda-forge/qt6-serialport-feedstock are
 immediately built and any created packages are uploaded, so PRs should be based
 on branches in forks and branches in the main repository should only be used to
 build distinct package versions.
@@ -182,4 +203,5 @@ Feedstock Maintainers
 =====================
 
 * [@ceholden](https://github.com/ceholden/)
+* [@hmaarrfk](https://github.com/hmaarrfk/)
 

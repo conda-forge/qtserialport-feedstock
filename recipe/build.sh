@@ -5,7 +5,7 @@ set -ex
 cd build/
 
 test ! -f ${PREFIX}/lib/libQt5SerialPort${SHLIB_EXT} || (
-   echo libQt5SerialPort already exists this package does not need to be built && exit $?
+   echo libQt5SerialPort already exists this package does not need to be built && exit 1
 )
 if [[ ${HOST} =~ .*linux.* ]]; then
   # Missing g++ workaround.

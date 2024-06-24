@@ -1,51 +1,66 @@
-{% set version = "5.9.8" %}
+{% set version = "6.6.1" %}
 {% set ver = '.'.join(version.split('.')[:2]) %}
 
 package:
-  name: qtserialport
+  name: qt6-serialport
   version: {{ version }}
 
 source:
-  url: http://download.qt.io/official_releases/qt/{{ ver }}/{{ version }}/submodules/qtserialport-opensource-src-{{ version }}.tar.xz
-  sha256: 141eb4f49b3b3e94433e7941d57713d2a1cc8e16f6fc22779d683359ef965d7b
+  url: https://download.qt.io/official_releases/qt/{{ ver }}/{{ version }}/submodules/qtserialport-everywhere-src-{{ version }}.tar.xz
+  sha256: 96fc233d5cbcac5048c6020dcfbd6cec8a6a8334eed0a283b33d58afc6d2aed8
 
 build:
-  # QtSerialPort already comes with Windows Qt builds but the included bld.bat
-  # should work (just doesn't package anything because files already exist)
-  skip: true  # [win]
-  number: 1
+  number: 0
 
 requirements:
   build:
     - perl
+    - make  # [unix]
+    - ninja  
     - cmake
     - {{ compiler('c') }}
     - {{ compiler('cxx') }}
+    - sysroot_linux-64 2.17              # [linux]
+    - qt6-main {{ version }}  # [build_platform != target_platform]
   host:
-    - qt
+    - qt6-main {{ version }}
   run:
-    - qt
+    # qt-main has a run export of x.x
+    # but because this is a subpackage of qt
+    # I would like to pin it to x.x.x
+    - qt6-main {{ version }}
 
 test:
   commands:
-    - test -f ${PREFIX}/lib/libQt5SerialPort${SHLIB_EXT}  # [not win]
+    {% set qt_libs = ["SerialPort"] %}
+    {% for each_qt_lib in qt_libs %}
+    - test -d $PREFIX/include/qt6/Qt{{ each_qt_lib }}  # [unix]
+    - test -f $PREFIX/lib/libQt6{{ each_qt_lib }}${SHLIB_EXT}  # [unix]
+    - if not exist %PREFIX%\\Library\\include\\qt6\\Qt{{ each_qt_lib }} exit 1  # [win]
+    - if not exist %PREFIX%\\Library\\lib\\Qt6{{ each_qt_lib }}.lib exit 1  # [win]
+    - if not exist %PREFIX%\\Library\\bin\\Qt6{{ each_qt_lib }}.dll exit 1  # [win]
+    {% endfor %}
 
 about:
   home: https://github.com/qt/qtserialport
-  license: GPL-3.0
-  license_family: GPL
-  license_file: LICENSE.GPL3
-  summary: 'The QtSerialPort module is an add-on module for the Qt5 library, providing a single interface for both hardware and virtual serial ports.'
+  license: GPL-2.0-only or GPL-3.0-only or LGPL-3.0-only
+  license_family: LGPL
+  license_file:
+    # They offer one of multiple licenses, they are all included in this
+    # subdirectory
+    - LICENSES/
+  summary: 'Qt Serial Port provides basic functionality for configuration, I/O operations, and getting and setting the control signals of the RS-232 pinouts.'
   description: |
-    The QtSerialPort module is an add-on module for the Qt5 library, providing a single
+    The QtSerialPort module is an add-on module for the Qt6 library, providing a single
     interface for both hardware and virtual serial ports. Serial interfaces, due to
     their simplicity and reliability, are still popular in some industries like the
     development of embedded systems, robotics, etc. Using the QtSerialPort module,
     developers can significantly reduce the time needed to implement Qt applications
     that require access to a serial interface.
-  doc_url: http://doc.qt.io/qt-5/qtserialport-index.html
+  doc_url: http://doc.qt.io/qt-6/qtserialport-index.html
   dev_url: https://github.com/qt/qtserialport
 
 extra:
   recipe-maintainers:
     - ceholden
+    - hmaarrfk
